@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: 'Moire Pattern Inspector',
+    description:
+      'A tool built with Godot for inspecting and exploring simple Moire patterns. Visualize interference patterns created by overlapping grids.',
+    link: 'https://gosferano.com/moire/',
+    tags: ['Godot', 'Graphics', 'Visualization'],
+  },
+  {
+    title: 'Borderlands 4 Builds & Tools',
+    description: 'Comprehensive build review page and tools for Borderlands 4.',
+    link: 'https://gosferano.com/borderlands/',
+    tags: ['Gaming', 'Web App', 'Build Planner'],
+  },
+  {
+    title: 'Spotify Extended History Viewer',
+    description:
+      'Analyze your Spotify extended listening history with detailed statistics, and insights into your music preferences over time.',
+    link: 'https://gosferano.com/spotify-decompressed/',
+    tags: ['Spotify', 'Data Visualization'],
+  },
+  {
+    title: 'Serilog Sink for Godot Console',
+    description:
+      'NuGet package providing a Serilog sink that directs log output to the Godot engine console. Seamlessly integrate structured logging into your Godot C# projects.',
+    link: 'https://www.nuget.org/packages/Serilog.Sinks.GodotConsole',
+    tags: ['NuGet', 'Serilog', 'Godot', 'C#'],
+  },
+];
+---
+
+<BaseLayout title="My Projects">
+  <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <header class="mb-16 py-16 text-center">
+      <h1 class="gradient-text mb-4 text-5xl font-bold md:text-6xl">My Projects</h1>
+      <p class="mx-auto max-w-2xl text-xl text-zinc-600 dark:text-zinc-400">
+        A collection of tools and applications I've built
+      </p>
+    </header>
+
+    <section class="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            link={project.link}
+            tags={project.tags}
+          />
+        ))
+      }
+    </section>
+
+    <footer class="border-t border-zinc-200 py-8 text-center dark:border-zinc-800">
+      <p class="text-sm text-zinc-600 dark:text-zinc-400">
+        © 2025 gosferano. Built with <a
+          href="https://astro.build"
+          target="_blank"
+          rel="noopener noreferrer">Astro</a
+        >. Vibe coded with <a href="https://claude.ai" target="_blank" rel="noopener noreferrer"
+          >claude.ai</a
+        >.
+      </p>
+    </footer>
+  </main>
+</BaseLayout>
